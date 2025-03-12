@@ -1,20 +1,23 @@
-{{#if @apod}}
+<label for="apod-date">Select date: </label>
+<input id="apod-date" type="date" {{on "change" this.updateDate}} />
+
+{{#if this.nasaApi.apod}}
   <div class="apod-container">
-    <h2>{{@apod.title}}</h2>
+    <h2>{{this.nasaApi.apod.title}}</h2>
 
     {{#if this.isImage}}
-      <img src="{{@apod.url}}" alt="{{@apod.title}}" />
+      <img src="{{this.nasaApi.apod.url}}" alt="{{this.nasaApi.apod.title}}" />
     {{else if this.isVideo}}
       <iframe
-        src="{{@apod.url}}"
-        title="{{@apod.title}}"
+        src="{{this.nasaApi.apod.url}}"
+        title="{{this.nasaApi.apod.title}}"
         class="borderless-iframe"
       ></iframe>
     {{else}}
       <p>Format not supported</p>
     {{/if}}
 
-    <p>{{@apod.explanation}}</p>
+    <p>{{this.nasaApi.apod.explanation}}</p>
   </div>
 {{else}}
   <p>Loading today's Astronomy Picture of the Day...</p>

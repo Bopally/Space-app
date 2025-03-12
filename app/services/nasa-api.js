@@ -7,9 +7,13 @@ export default class NasaApiService extends Service {
   @tracked apod = null;
 
   @action
-  async fetchApod() {
+  async fetchApod(date = null) {
     const apiKey = 'QS3eUr2s8gzKDr19jnh67Gue0SYlcbjklgKewKlh';
-    const url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+    let url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+
+    if (date) {
+      url += `&date=${date}`;
+    }
 
     try {
       let response = await fetch(url);
