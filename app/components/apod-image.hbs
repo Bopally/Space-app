@@ -1,0 +1,21 @@
+{{#if @apod}}
+  <div class="apod-container">
+    <h2>{{@apod.title}}</h2>
+
+    {{#if this.isImage}}
+      <img src="{{@apod.url}}" alt="{{@apod.title}}" />
+    {{else if this.isVideo}}
+      <iframe
+        src="{{@apod.url}}"
+        title="{{@apod.title}}"
+        class="borderless-iframe"
+      ></iframe>
+    {{else}}
+      <p>Format not supported</p>
+    {{/if}}
+
+    <p>{{@apod.explanation}}</p>
+  </div>
+{{else}}
+  <p>Loading today's Astronomy Picture of the Day...</p>
+{{/if}}
