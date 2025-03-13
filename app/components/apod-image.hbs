@@ -1,7 +1,12 @@
 <label for="apod-date">Select date: </label>
 <input id="apod-date" type="date" {{on "change" this.updateDate}} />
+{{!create a component for datapicker }}
 
-{{#if this.nasaApi.apod}}
+{{#if this.nasaApi.isError}}
+  <p>Error: Try again</p>
+{{else if this.nasaApi.isLoading}}
+  <p>Loading today's Astronomy Picture of the Day...</p>
+{{else if this.nasaApi.data}}
   <div class="apod-container">
     <h2>{{this.nasaApi.apod.title}}</h2>
 
@@ -16,9 +21,6 @@
     {{else}}
       <p>Format not supported</p>
     {{/if}}
-
     <p>{{this.nasaApi.apod.explanation}}</p>
   </div>
-{{else}}
-  <p>Loading today's Astronomy Picture of the Day...</p>
 {{/if}}
