@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 export default class ApodImageComponent extends Component {
   @service nasaApi;
   get isImage() {
+    // test
     return this.args.apod?.media_type === 'image';
   }
 
