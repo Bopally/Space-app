@@ -19,7 +19,7 @@ h1 {
   padding: 20px;
   background-color: #1f2833;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 50%);
 }
 
 .apod-container h2 {
@@ -43,7 +43,7 @@ h1 {
 }
 
 /* 📱 Responsive */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .apod-container {
     width: 90%;
     padding: 15px;
