@@ -20,21 +20,13 @@ export default class NasaApiService extends Service {
     }
 
     try {
-      this.isLoading = true;
-      this.data = null;
-      this.isError = false;
       let response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      let data = await response.json();
-      this.apod = data;
-      this.data = data;
+      return await response.json();
     } catch (error) {
       console.error('Error can not fetch APOD', error);
-      this.isError = true;
-    } finally {
-      this.isLoading = false;
     }
   }
 }
