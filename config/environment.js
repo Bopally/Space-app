@@ -17,6 +17,7 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      NASA_API_KEY: process.env.NASA_API_KEY || 'default_key',
     },
   };
 
